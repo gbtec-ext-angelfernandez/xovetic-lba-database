@@ -1,7 +1,7 @@
-FROM postgres:9.6
+FROM postgres:9.4
 
-ENV POSTGRES_USER=postgres \
-    POSTGRES_PASSWORD=postgres \
+ENV POSTGRES_USER=lba \
+    POSTGRES_PASSWORD=lb4Us3r \
     POSTGRES_MAX_CONNECTIONS=200 \
     POSTGRES_SHARED_BUFFERS="256MB"
 
@@ -17,6 +17,7 @@ RUN chmod +x /var/lib/postgresql/*.sh && \
     mkdir -p /var/lib/postgresql/backup && \
     chown -R postgres:postgres /var/lib/postgresql && \
     apt-get update && \
+    apt-get install -y dos2unix && \
     apt-get install -y cron less vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
