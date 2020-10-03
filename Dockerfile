@@ -8,8 +8,6 @@ ENV POSTGRES_USER=postgres \
 COPY bash/install-crontab.sh bash/entrypoint.sh /startup/
 COPY backup/*.sh /var/lib/postgresql/
 
-ADD ./scripts/ /docker-entrypoint-initdb.d/
-
 RUN chown -R postgres:postgres /docker-entrypoint-initdb.d/
 
 RUN chmod +x /var/lib/postgresql/*.sh && \
