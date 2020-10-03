@@ -1,2 +1,2 @@
-# xovetic-nba-database
-Xovetic Workshop: Postgresql database container holding all the project data 
+# XoveTIC LBA Database
+XoveTIC Workshop: Postgresql database container holding all the project data 
