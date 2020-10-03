@@ -1,12 +1,14 @@
 FROM postgres:9.6
 
 ENV POSTGRES_USER=postgres \
-    POSTGRES_PASSWORD=lb4Us3r \
-    POSTGRES_MAX_CONNECTIONS=100 \
+    POSTGRES_PASSWORD=postgres \
+    POSTGRES_MAX_CONNECTIONS=200 \
     POSTGRES_SHARED_BUFFERS="256MB"
 
-COPY bash/install-crontab.sh bash/entrypoint.sh /startup/
+COPY install-crontab.sh entrypoint.sh /startup/
 COPY backup/*.sh /var/lib/postgresql/
+
+ADD ./scripts/ /docker-entrypoint-initdb.d/
 
 RUN chown -R postgres:postgres /docker-entrypoint-initdb.d/
 
